@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+<head>
+		<!-- 引入react -->
+		<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+		<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+		<!-- 引入babel,将jsx转化为js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+		<!-- antd3.0后自行引用moment -->
+		<script type="text/javascript" src="moment.js"></script>
+		<!-- antd -->
+		<script type="text/javascript" src="antd.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="antd.min.css" />
+		<!-- type设置成babel -->
+		<script type="text/babel">
+			//import没有用
+			//import { Menu, Dropdown, Icon } from 'antd';
+
+			function onChange(e) {
+				console.log(`checked = ${e.target.checked}`);
+			}
+			
+			//使用全称
+			const menu = (
+				<antd.Menu>
+					<antd.Menu.Item>
+						<antd.Checkbox onChange={onChange}>Checkbox</antd.Checkbox>
+					</antd.Menu.Item>
+					<antd.Menu.Item>
+						<antd.Checkbox onChange={onChange}>Checkbox</antd.Checkbox>
+					</antd.Menu.Item>
+					<antd.Menu.Item>
+						<antd.Checkbox onChange={onChange}>Checkbox</antd.Checkbox>
+					</antd.Menu.Item>
+				</antd.Menu>
+			);
+			
+			function doubleClick(e) {
+				console.log(`doubleClick`);
+			}
+			
+			ReactDOM.render(
+				<div>
+				<a onDoubleClick={doubleClick}>问题</a>
+				<antd.Dropdown overlay={menu}>
+					<a className="ant-dropdown-link" href="#" onDoubleClick={doubleClick}>
+						Hover me <antd.Icon type="down" />
+					</a>
+				</antd.Dropdown>
+				</div>,
+				document.getElementById('testreact'));
+		</script>
+</head>
+<body style="height: 100%;margin: 0;background-image: url('bg.jpg'); background-size: 100% 100%;">
+    <div style="display: flex;justify-content: center;align-items: center;height: 100%;">
+		<div id="testreact">
+
+		</div>
+
+    </div>
+</body>
+</html>
